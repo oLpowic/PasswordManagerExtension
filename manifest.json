@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Password Manager",
+    "version": "1.0",
+    "description": "Menedżer haseł do Chrome.",
+    "permissions": ["storage", "tabs", "activeTab"],
+    "background": {
+      "service_worker": "scripts/background.js"
+    },
+    "action": {
+      "default_title": "Password Manager",
+      "default_icon": "images/safe.png",
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["scripts/content.js"]
+      }
+    ]
+  }
+  

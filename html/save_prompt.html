@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zapisz dane logowania</title>
+</head>
+<body>
+  <h1>Czy chcesz zapisać hasło?</h1>
+  <div id="credentials">
+    <label>
+      <strong>Login:</strong>
+      <input type="text" id="login" />
+    </label>
+    <br>
+    <label>
+      <strong>Hasło:</strong>
+      <input type="text" id="password" />
+    </label>
+    <br>
+    <label>
+      <strong>Strona:</strong>
+      <input type="text" id="url" disabled />
+    </label>
+  </div>
+  <button id="save">Zapisz</button>
+  <button id="cancel">Anuluj</button>
+  <script src="scripts/save_prompt.js"></script>
+</body>
+</html>
