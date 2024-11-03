@@ -1,2 +1,2 @@
 # PasswordManagerExtension
-Password Manager Extanstion for Chrome 
+Password Manager Extanstion for Chrome

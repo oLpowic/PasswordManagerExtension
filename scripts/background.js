@@ -1,13 +1,14 @@
 let storedLogin = null;
 let storedHostname = null;
 
-console.log(storedHostname);
+
 // Obsługa pierwszego kroku logowania - zapis loginu
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "login_step") {
     console.log("dupa");
     storedLogin = message.login;
-    storedHostname = new URL(message.url).hostname;
+    storedHostname = message.hostname;
+    console.log(storedHostname);
   } 
   else if (message.type === "password_step" && storedLogin) {
     // Mamy login i hasło - wywołujemy niestandardowy pop-up
@@ -17,12 +18,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       hostname: storedHostname
     });
 
-    console.log(storedLogin);
-    chrome.windows.create({
-      url: "html/save_prompt.html",
-      type: "popup",
-      width: 400,
-      height: 300
+    chrome.runtime.sendMessage({
+      type: "show_popup",
+      login: storedLogin,
+      password: message.password,
+      hostname: storedHostname
     });
 
     // Czyścimy tymczasowe przechowywanie danych
