@@ -5,7 +5,6 @@ let storedHostname = null;
 // Obsługa pierwszego kroku logowania - zapis loginu
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "login_step") {
-    console.log("dupa");
     storedLogin = message.login;
     storedHostname = message.hostname;
     console.log(storedHostname);
